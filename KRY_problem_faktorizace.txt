@@ -1,0 +1,253 @@
+
+
+
+
+
+
+
+
+
+
+
+
+Kryptografie (MPC-KRY)
+
+Problém celocíselné faktorizace
+
+Problém celocíselné faktorizace
+
+• Jedná se problém rozložení celého císla na soucin menších celých císel (jeho faktoru).
+?? = ?? · ??
+• Kde hodnota ?? je verejná, hodnoty ?? a ?? jsou neznámé.
+• Napríklad: 15 = 3 · 5;	55 = 5 · 11;	1025 = 5 · 5 · 41 = 52 · 41.
+• Pokud je císlo výsledkem soucinu prvocísel, jedná se o problém prvocíselné faktorizace. Využívá se v asymetrickém algoritmu RSA.
+• V prípade malých císel se jedná o triviální úlohu. Pri faktorizaci velkého císla se jedná o výpocetne složitou a casove nárocnou úlohu.
+
+Metody pro výpocet prvocíselné faktorizace
+• Faktorizace delením
+• Lehmanova metoda
+• Pollarduv ?? algoritmus
+• Pollardova ??-1 metoda
+• Williamsova ??+1 metoda
+• Metoda eliptických krivek
+• SQUFOF
+• Kvadratické síto
+• Císelne teoretické síto
+
+Faktorizace delením
+• Nejméne efektivní metoda (brute-force), zato nejjednodušší.
+
+
+
+
+• Postup:
+1. Na vstupu je císlo ??, které chceme rozložit.
+2. Císlo ?? zkoušíme postupne delit prvocísly menšími než
+
+
+
+(od nejmenšího).
+
+3. Pokud je zbytek po delení roven nule, našli jsme jeden z faktoru.
+4. Výsledek po delení nalezeným faktorem se pokoušíme dále rozložit stejným
+faktorem.
+5. Pokud je zbytek po delení vetší než nula, zkoušíme delit dalším prvocíslem.
+6. Rozklad je hotový, pokud výsledek delení je roven jedné.
+
+Faktorizace delením
+• Príklad:
+• Mejme císlo ??=100, nalezneme prvocísla menší než v??=10, tedy 2, 3, 5, 7.
+Zacneme delení od nejmenšího:
+• 100/2=50, zbytek 0? pridáme do rozkladu císlo 2
+• 50/2=25, zbytek 0? pridáme do rozkladu císlo 2
+• 25/2=12, zbytek 1? musíme otestovat delení dalším prvocíslem
+• 25/3=8, zbytek 1? musíme otestovat delení dalším prvocíslem
+• 25/5=5, zbytek 0? pridáme do rozkladu císlo 5
+• 5/5=1, zbytek 0? pridáme do rozkladu císlo 5
+• Jelikož je ?? rovno jedné, rozklad je hotový.
+• 100 = 2 · 2 · 5 · 5
+
+Pollarduv ? algoritmus
+• Efektivní pro rozklad složených císel s malými prvocíselnými faktory.
+• Nalezne pouze jeden clen prvocíselného rozkladu.
+• Máme prirozené císlo ?? = ?? · ??, které chceme faktorizovat.
+• Zvolíme prirozené císlo ??0 a vypocítáme urcitý pocet clenu posloupnosti
+
+nezáporných celých císel
+
+pomocí: ????+1 = ??2 + 1
+
+, ?? = 0, 1, ...
+
+• Predpokládejme, že prvocíslo ?? je nejmenším prvocíselným delitelem císla ?? a že
+je posloupnost pseudonáhodných císel modulo ??.
+• Pro jisté dva cleny ????, ????, kde ?? > ??, této posloupnosti platí, že ???? = ???? (mod ??).
+• Platí tedy ??¦(???? - ????), ??¦??, tzn., že nejvetší spolecný delitel ??	> 1.
+• Pokud zároven ???? = ????(mod ??), poté je ??(???? - ????, ??) < ?? a nalezli jsme
+netriviální delitel císla ??. Delitele je možné nalézt pomocí Euklidova algoritmu.
+• Stací testovat jen dvojice ??2??, ????, ?? ? ??.
+
+Pollarduv ? algoritmus - postup
+Je dáno prirozené císlo N, které chceme rozložit.
+1. Zvolme libovolné císlo ??0 (malé celé císlo, napr. 1, 2 a 3).
+2. Vypocteme ????+1 = ??2 + 1(mod ??), ?? = 0, 1, ... (až do zacyklení).
+3. Pro jistý pocet ?? ? ?? vypocteme ??(??2?? - ????, ??).
+• Opakujeme do doby, než ??(??2?? - ????, ??) je netriviálním delitelem císla ?? -
+??
+
+dospeli jsme k rešení. ?? = ??, ?? =
+
+,  ?? = ?? · ??.
+??
+
+• Pokud nenalezneme netriviálního delitele císla ??, neuspeli jsme.
+• Pokud vyjde D = N, je nutné algoritmus restartovat s jinou volbou ??0 nebo
+jinou konstantou ve funkci (napr. ??2 + 2).
+
+Pollarduv ? algoritmus - príklad
+
+
+• Rozložme císlo ?? = 527.
+• Zvolíme ??0 = 3 a vypocteme dalších 10 clenu posloupnosti	.
+
+• ??1 = ??2 + 1
+• ??2 = ??2 + 1
+
+= 32 + 1(mod 527) = 10(mod 527) = ????
+= 102 + 1(mod 527) = 101(mod 527) = ??????
+
+• ??3 = ??2 + 1
+• ??4 = ??2 + 1
+
+= 1012 + 1
+= 1892 + 1
+
+= 10202(mod 527) = ??89
+= 35722(mod 527) = ??????
+
+• ??5 = ??2 + 1
+• ??6 = ??2 + 1
+• ??7 = ??2 + 1
+• ??8 = ??2 + 1
+• ??9 = ??2 + 1
+
+= 4132 + 1(mod 527) = 170570(mod 527) = ??????
+= 3492 + 1(mod 527) = 121802(mod 527) = ????
+= 652 + 1(mod 527) = 4226(mod 527) = ????
+= 102 + 1(mod 527) = 101(mod 527) = ??????
+= 1012 + 1(mod 527) = 10202(mod 527) = ??89
+
+8
+• ??	2	2
+
+413
+
+10 = ??9 + 1
+
+= 189
+
++ 1(mod 527) = 35722(mod 527) =
+
+Pollarduv ? algoritmus - príklad
+• Urcíme nejvetší spolecné delitele ??(??2?? - ????, ??):
+
+• ?? ??2 - ??1, ??	= ??
+• ?? ??4 - ??2, ??	= ??
+• ?? ??6 - ??3, ??	= ??
+
+= ??
+= ??
+= ??
+
+= 1,
+= 1,
+= 31.
+
+
+
+
+• Další nejvetší spolecné delitel hledat nemusíme, protože jsme nalezli netriviální delitel císla ?? = 527, tj. císlo 31.
+
+
+
+
+• Platí tedy: ?? = ?? = 31,  ?? = ??
+??
+
+= 527
+31
+
+= 17,  ?? = ?? · ?? = 31 · 17 = 527
+
+Algoritmus RSA
+• Asymetrický šifrovací algoritmus (dva klíce - soukromý a verejný).
+• Vhodný k šifrování i podepisování.
+• Pri dostatecné délce klíce (modulu ??) je považován za bezpecný.
+• Bezpecnost se opírá o složitost faktorizace prvocísel.
+
+Podepisování dat.	Šifrování dat.
+
+Algoritmus RSA - tvorba klícového páru
+• Uživatel si zvolí náhodná velká tajná prvocísla ?? a ??.
+• Spocítá jejich soucin ?? = ?? · ??.
+• Spocítá hodnotu Eulerovy funkce ??(??) = (?? - 1) · (?? - 1).
+• Uživatel si zvolí celé císlo ?? menší než ??(??), které je s ??(??) nesoudelné. (Nesoudelnost ?? a ??(??) je možné otestovat Euklidovým algoritmem.)
+• Uživatel má nyní svuj verejný klíc (??, ??).
+• Uživatel spocítá multiplikativní inverzi císla ?? mod ??(??), címž dostane
+
+císlo ??. Musí platit ???? = 1
+
+,  ?? = ??-1 mod ??
+
+. Pro
+
+výpocet se používá rozšírený Eukliduv algoritmus.
+• Uživatel má nyní svuj soukromý klíc (??, ??).
+
+Algoritmus RSA - príklad ustanovení klícu
+• Alice zvolí náhodne dve prvocísla, vypocte modulo a hodnotu Eulerovy
+funkce.
+???? = 17,
+???? = 19,
+???? = 17 * 19 = 323,
+f 323	= f 17 * 19	=	17 - 1	*	19 - 1	= 288
+
+• Alice si zvolí císlo ???? = 37 a nalezne jeho multiplikativní inverzi ????.
+
+???? = 37-1 mod
+
+= 109 mod(288)
+
+
+
+• Alice zverejní svuj verejný klíc (37, 323) a svuj soukromý klíc (109, 323) si
+ponechá v tajnosti.
+
+Algoritmus RSA - šifrování/podepisování dat
+• Zašifrování zprávy
+• Alice dohodnutým zpusobem prevede zprávu na císlo ??.
+• Alice zprávu zašifruje Bobovým verejným klícem ????: ?? = ?????? (mod ??).
+• Alice odešle zašifrovanou zprávu pres nezabezpecený kanál.
+• Dešifrování zprávy
+• Bob získá zašifrovanou zprávu ??, kterou dešifruje svým soukromým klícem ????.
+?? = ?????? (mod ??)
+• Bob získá puvodní zprávu ??.
+• Podepsání/overení zprávy probíhá obdobne s tím, že zprávu Bob podepíše s využitím svého soukromého klíce ???? a Alice overí podpis s využitím verejného klíce Boba ????.
+
+Úkol: Programy - Algoritmy pro faktorizaci
+• Ve zvoleném programovacím jazyku (Python, Java, C /C#/ C++ apod.)
+naprogramujte následující metody pro výpocet prvocíselné faktorizace:
+• Faktorizace delením
+• Pollarduv ? algoritmus
+• Na PC v programu Visual Studio nebo Eclipse. Nebo na Google Colab (odkaz v Elearningu, prihlaste se pres VUTcíslo@vut.cz ) - uložte si kopii na svuj disk (Soubor-> Uložit -> Uložit kopii na disk). Je zde popsán a ukázán Pollarduv ? algoritmus.
+• Z pocátku použijte malá prvocísla ?? a ?? k vytvorení modulu n. Poté je zvyšujte a sledujte rostoucí casovou nárocnost jejich výpoctu z n.
+• Vytvorte graf závislosti velikosti modulu n na dobe výpoctu prvocísel ?? a ??
+pomocí faktorizace delením a Pollardova ? algoritmu.
+
+Výuka ve cvicení ve 4. týdnu
+1. Test za 10 bodu:
+• Problém diskrétního logaritmu (prolomení Diffie-Hellman protokolu),
+• Problém celocíselné faktorizace (prolomení protokolu RSA).
+• Po absolvování obou testu vyplnení dotazníku k úlohám na problém diskrétního logaritmu a celocíselné faktorizace.
+
+2. Kvantové pocítání s využitím simulátoru kvantových obvodu
