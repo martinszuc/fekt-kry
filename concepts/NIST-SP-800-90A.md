@@ -18,5 +18,5 @@ tags: [kry, concept, topic/standardy, topic/rng]
 
 ---
 ## Spätné prepojenia
-Detailne: [[Q13]], [[Q43]]
+Detailne: [[Q13*]], [[Q43]]
 Súvisí s: [[concepts/FIPS-140]]

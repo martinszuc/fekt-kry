@@ -16,5 +16,5 @@ tags: [kry, concept, topic/pqc, topic/kodova]
 
 ---
 ## Spätné prepojenia
-Úvod: [[Q19]], Detailne: [[Q40]], Duálna varianta: [[Q41]]
+Úvod: [[Q19*]], Detailne: [[Q40]], Duálna varianta: [[Q41]]
 Súvisí s: [[concepts/Goppa-kod]], [[concepts/Niederreiter]]

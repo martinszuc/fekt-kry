@@ -7,12 +7,13 @@ tags: [kry, concept, topic/kvantova]
 
 **Dopad na symetrickú kryptografiu:**
 Efektívna bezpečnosť sa znižuje na **polovicu** (v bitoch):
-| Algoritmus | Klasická bezpečnosť | Kvantová bezpečnosť (Grover) |
-|------------|--------------------|-----------------------------|
-| AES-128 | 128 bitov | **64 bitov** — nedostatočné |
-| **AES-256** | 256 bitov | **128 bitov** — OK |
-| SHA-256 kolízie | 128 bitov | 85 bitov — oslabené |
-| **SHA-384** kolízie | 192 bitov | **128 bitov** — OK |
+
+| Algoritmus         | Klasická bezpečnosť | Kvantová bezpečnosť (Grover) | Stav            |
+| ------------------ | :-----------------: | :--------------------------: | :-------------: |
+| AES-128            | 128 bitov           | 64 bitov                     | ❌ nedostatočné |
+| **AES-256**        | 256 bitov           | **128 bitov**                | ✅ OK           |
+| SHA-256 (kolízie)  | 128 bitov           | ~85 bitov                    | ⚠️ oslabené    |
+| **SHA-384** (kolízie) | 192 bitov        | **~96 bitov**                | ✅ OK           |
 
 **Záver:** Symetrickú kryptografiu **nerozbije** — stačí zdvojnásobiť dĺžku kľúča (AES-128 → AES-256).
 

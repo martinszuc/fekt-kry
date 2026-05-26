@@ -18,5 +18,5 @@ tags: [kry, concept, topic/symetria]
 
 ---
 ## Spätné prepojenia
-Používa sa v: [[Q01]], [[Q04]], [[Q13]], [[Q37]], [[Q43]]
+Používa sa v: [[Q01]], [[Q04]], [[Q13*]], [[Q37]], [[Q43]]
 Súvisí s: [[concepts/AEAD]], [[concepts/ChaCha20]], [[concepts/DES]]

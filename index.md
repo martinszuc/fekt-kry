@@ -40,7 +40,7 @@ title: MPC-KRY — Domovský list
 
 - [[Q11]] — Entropia: vzťah k bezpečnosti CSPRNG, dôsledky nedostatočnej entropie
 - [[Q12]] — Požiadavky na kryptograficky bezpečné generátory (CSPRNG): predvídateľnosť, back/forward secrecy
-- [[Q13]] — Príklady realizácie CSPRNG: TRNG, HMAC_DRBG, Hash_DRBG, CTR_DRBG (NIST SP 800-90A)
+- [[Q13*]] — Príklady realizácie CSPRNG: TRNG, HMAC_DRBG, Hash_DRBG, CTR_DRBG (NIST SP 800-90A)
 
 ### 4) Kvantová kryptografia
 
@@ -51,13 +51,13 @@ title: MPC-KRY — Domovský list
 
 - [[Q16]] — Digitálny podpis: formálna definícia, požiadavky, súčinnosť s hašom
 - [[Q17]] — Časové razítko: účel, protokol RFC 3161, TSA, požiadavky
-- [[Q18]] — eIDAS: elektronický podpis, pečať, časové razítko (prehľad)
+- [[Q18*]] — eIDAS: elektronický podpis, pečať, časové razítko (prehľad)
 - [[Q42]] — eIDAS právny rámec podrobne: SES / AdES / QES, QSCD, EUDI Wallet
 
 ### 6) Asymetrické systémy a útoky
 
-- [[Q19]] — McEliece: úvod, princíp, výhody/nevýhody (detail → [[Q40]])
-- [[Q20]] — ECDH nad $\mathbb{F}_p$: parametre, výpočet kľúčov, priebeh ⚠️ *zvyčajne preskakované*
+- [[Q19*]] — McEliece: úvod, princíp, výhody/nevýhody (detail → [[Q40]])
+- [[Q20]] — ECDH nad $\mathbb{F}_p$: parametre, výpočet kľúčov, priebeh
 - [[Q21]] — Hastadov útok na RSA s malým verejným exponentom $e$
 - [[Q22]] — Slepý podpis (Blind Signature) na základe RSA: protokol, aplikácie (e-cash, voľby)
 - [[Q23]] — Diskrétny logaritmus (DLP): charakteristika, systémy závislé na DLP
@@ -70,18 +70,18 @@ title: MPC-KRY — Domovský list
 ### 7) Autentizácia a protokoly
 
 - [[Q25]] — Faktory overenia identity (znalostný, vlastnícky, biometrický, PUF); kritériá výberu MFA
-- [[Q26]] — Autentizačné protokoly: princíp, parametry čerstvosti, útoky ⚠️ *zvyčajne preskakované*
+- [[Q26]] — Autentizačné protokoly: princíp, parametry čerstvosti, útoky
 
 ### 8) BAN logika
 
-- [[Q27]] — BAN logika: definícia, typ (epistemická), notácia, účel ⚠️ *zvyčajne preskakované*
+- [[Q27]] — BAN logika: definícia, typ (epistemická), notácia, účel
 - [[Q28]] — BAN logika: 5 otázok, 3 typy objektov (Principals, Keys, Formulae)
 - [[Q29]] — BAN logika: 3 konštrukcie (viera, videnie, čerstvosť) + 3 pravidlá (MM, NV, JR)
-- [[Q30]] — BAN logika: 5 krokov analýzy protokolu (Idealizácia→Predpoklady→Ciele→Odvodzovanie→Vyhodnotenie)
+- [[Q30]] — BAN logika: 5 krokov analýzy protokolu (Idealizácia→Predpoklady→Ciele→Odvodzovanie→Vyhodn otenie)
 
 ### 9) Postkvantová kryptografia (PQC)
 
-- [[Q35]] — EdDSA vs. ECDSA: deterministický nonce, Twisted Edwards krivky, PS3 incident ⚠️ *zvyčajne preskakované*
+- [[Q35]] — EdDSA vs. ECDSA: deterministický nonce, Twisted Edwards krivky, PS3 incident
 - [[Q36]] — EUF-CMA a SUF-CMA: definície, tvárnosť podpisov, Bitcoin Malleability Attack
 - [[Q37]] — PQC: dôvody vzniku (Shor, Grover, SNDL), 5 rodín konštrukcií, NIST štandardy 2024
 - [[Q38]] — LWE: princíp $\mathbf{b}=A\mathbf{s}+\mathbf{e}$, prečo je ťažký, Regevovo šifrovaní bitu
@@ -101,11 +101,10 @@ title: MPC-KRY — Domovský list
 > - **5 otázok** za **60 minút** → ~12 min/otázka
 > - **60 bodov** celkovo
 > - **Vždy minimálne 1× Ideový návrh** → [[Q43]] — dobre sa nauč všetky scenáre!
-> - Zvyčajne preskakované: Q20, Q26, Q27, Q35 — sú tu pre kontext, nie pre skúšku
 
 > [!tip] Stratégia štúdia
-> **Povinné (zvyčajne na skúške):** Q01–Q19, Q21–Q25, Q28–Q34, Q36–Q43
-> **Voliteľné (skúška preskakuje):** Q20, Q26, Q27, Q35
+> **Všetky otázky sú na skúške:** Q01–Q43 (vrátane Q20, Q26, Q27, Q35)
+> **Hviezdičkou označené** (Q13\*, Q18\*, Q19\*) — bývajú na skúške, ale detailom menej
 > **Vždy sa opakuje:** Q43 (Ideový návrh) — nauč sa aspoň 4 scenáre spamäti
 
 ---
@@ -161,13 +160,13 @@ title: MPC-KRY — Domovský list
 | **OTS** | One-Time Signature (jednorazový podpis) | [[Q09]] |
 | **WOTS** | Winternitz OTS | [[Q10]] |
 | **CSPRNG** | Cryptographically Secure Pseudo-RNG | [[Q12]] |
-| **TRNG** | True RNG — hardvérový zdroj entropie | [[Q13]] |
-| **DRBG** | Deterministic Random Bit Generator | [[Q13]] · [[concepts/NIST-SP-800-90A]] |
+| **TRNG** | True RNG — hardvérový zdroj entropie | [[Q13*]] |
+| **DRBG** | Deterministic Random Bit Generator | [[Q13*]] · [[concepts/NIST-SP-800-90A]] |
 | **QKD** | Quantum Key Distribution | [[concepts/QKD]] · [[Q15]] |
 | **BB84** | Bennett–Brassard 1984 QKD protokol | [[concepts/BB84]] · [[Q15]] |
 | **TSA** | Time Stamping Authority | [[Q17]] · [[concepts/RFC-3161]] |
-| **eIDAS** | EU nariadenie 910/2014 o el. identifikácii | [[concepts/eIDAS]] · [[Q18]] · [[Q42]] |
-| **SES / AdES / QES** | Simple / Advanced / Qualified Electronic Signature | [[Q18]] · [[Q42]] |
+| **eIDAS** | EU nariadenie 910/2014 o el. identifikácii | [[concepts/eIDAS]] · [[Q18*]] · [[Q42]] |
+| **SES / AdES / QES** | Simple / Advanced / Qualified Electronic Signature | [[Q18*]] · [[Q42]] |
 | **QSCD** | Qualified Signature Creation Device (HSM, čipová karta) | [[Q42]] |
 | **EUDI Wallet** | European Digital Identity Wallet (eIDAS 2.0, 2026) | [[Q42]] |
 | **DLP** | Discrete Logarithm Problem | [[concepts/DLP]] · [[Q23]] |
@@ -184,7 +183,7 @@ title: MPC-KRY — Domovský list
 | **LWE** | Learning With Errors | [[concepts/LWE]] · [[Q38]] · [[Q39]] |
 | **NTT** | Number Theoretic Transform (rýchle násobenie polynómov) | [[Q39]] |
 | **PFS** | Perfect Forward Secrecy | [[concepts/PFS]] · [[Q43]] |
-| **HSM** | Hardware Security Module | [[Q17]] · [[Q18]] |
+| **HSM** | Hardware Security Module | [[Q17]] · [[Q18*]] |
 | **BAN** | Burrows–Abadi–Needham logika | [[concepts/BAN-logika]] · [[Q27]]–[[Q30]] |
 | **ZKP** | Zero-Knowledge Proof | [[concepts/Zero-Knowledge]] · [[Q32]] |
 | **SNDL** | Store Now, Decrypt Later (PQC hrozba) | [[Q37]] |

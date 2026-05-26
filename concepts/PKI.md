@@ -21,5 +21,5 @@ tags: [kry, concept, topic/infrastruktura]
 
 ---
 ## Spätné prepojenia
-Kontext: [[Q16]], [[Q17]], [[Q18]], [[Q42]]
+Kontext: [[Q16]], [[Q17]], [[Q18*]], [[Q42]]
 Súvisí s: [[concepts/X.509]], [[concepts/eIDAS]], [[concepts/TLS]]

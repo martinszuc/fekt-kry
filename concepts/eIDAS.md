@@ -17,5 +17,5 @@ tags: [kry, concept, topic/legislativa]
 
 ---
 ## Spätné prepojenia
-Detailne: [[Q18]], [[Q42]]
+Detailne: [[Q18*]], [[Q42]]
 Súvisí s: [[concepts/PKI]], [[concepts/X.509]], [[concepts/RFC-3161]]

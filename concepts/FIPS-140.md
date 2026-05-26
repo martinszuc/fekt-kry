@@ -19,5 +19,5 @@ tags: [kry, concept, topic/standardy]
 
 ---
 ## Spätné prepojenia
-Kontext: [[Q13]], [[Q43]]
+Kontext: [[Q13*]], [[Q43]]
 Súvisí s: [[concepts/NIST-SP-800-90A]]
